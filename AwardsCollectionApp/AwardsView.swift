@@ -9,13 +9,13 @@ import SwiftUI
 
 struct AwardsView: View {
     let awards = Aword.getAwards()
-
+    let itemSize: CGFloat = 100
     var activeAwards: [Aword] {
         awards.filter { $0.awarded }
     }
     var body: some View {
         NavigationView {
-            CustomGridView(columns: 2, items: activeAwards) { award in
+            CustomGridView(columns: 2, items: activeAwards) { itemSize, award in
                 VStack {
                     award.awardView
                     Text(award.title)
